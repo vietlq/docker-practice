@@ -294,3 +294,5 @@ mongoose.connect('mongodb://db/wallet');
 * https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
 * https://docs.docker.com/compose/networking/
 * https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
+* https://stackoverflow.com/questions/26145351/why-doesnt-chown-work-in-dockerfile
+* https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode
