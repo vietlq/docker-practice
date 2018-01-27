@@ -239,3 +239,11 @@ services:
 https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
 
 https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+
+### References
+
+* https://github.com/wsargent/docker-cheat-sheet
+* http://containertutorials.com/volumes/volume_from_image.html
+* https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
+* https://docs.docker.com/compose/networking/
+* https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
