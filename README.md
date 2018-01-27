@@ -240,6 +240,53 @@ https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-
 
 https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
 
+### Expose and attach volume
+
+In your Dockerfile:
+
+```
+VOLUME /data/db /data/configdb
+```
+
+In your docker-compose.yml, you can attach local folders in `.tmp` to the volumes:
+
+```
+version: '3'
+services:
+  db:
+    image: "mongo:3.6"
+    volumes:
+      - ".tmp/data/db:/data/db"
+      - ".tmp/data/configdb:/data/configdb"
+```
+
+### Pinging between docker images
+
+Let's say you want to build a web service that uses MongoDB, and here's your docker-compose.yml:
+
+```
+version: '3'
+services:
+  db:
+    image: "mongo:3.6"
+    ports:
+      - "27017:27017"
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    links:
+      - db
+```
+
+Inside the Docker Compose cluster, you can ping between the images using the names `db` and `web` that they have been assigned.
+
+One step furthere, you can use connection string from `web`:
+
+```
+mongoose.connect('mongodb://db/wallet');
+```
+
 ### References
 
 * https://github.com/wsargent/docker-cheat-sheet
