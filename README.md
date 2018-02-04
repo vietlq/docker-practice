@@ -287,9 +287,29 @@ One step furthere, you can use connection string from `web`:
 mongoose.connect('mongodb://db/wallet');
 ```
 
+### Start a Docker Image that Exited
+
+```
+docker start image_id
+```
+
+If you need to reattach STDIN/STDOUT:
+
+```
+docker attach image_id
+```
+
+### How to Work with Daemonized Services
+
+Daemonized services will fork a child, disown it and exit. This will cause your Docker image to exit. There are 2 ways to solve it:
+
+* Pass parameter to the executable so that it won't daemonize
+* The entrypoint should be changed to user space process managers like `supervisord` - http://supervisord.org/
+
 ### References
 
 * https://github.com/wsargent/docker-cheat-sheet
+* https://github.com/Krijger/docker-cookbooks
 * http://containertutorials.com/volumes/volume_from_image.html
 * https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/
 * https://docs.docker.com/compose/networking/
@@ -297,3 +317,5 @@ mongoose.connect('mongodb://db/wallet');
 * https://stackoverflow.com/questions/26145351/why-doesnt-chown-work-in-dockerfile
 * https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode
 * https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430
+* https://stackoverflow.com/questions/21928691/how-to-continue-a-docker-which-is-exited
+* https://stackoverflow.com/questions/17252356/run-a-service-automatically-in-a-docker-container
